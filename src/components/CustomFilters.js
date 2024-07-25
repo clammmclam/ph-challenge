@@ -28,7 +28,9 @@ export default function CustomFilters({
         {menuOpen && isSelected && (
           <CheckIcon sx={{ position: "absolute", height: 12, width: 12 }} />
         )}
-        <Typography sx={{ ml: "25px" }}>{filter.label}</Typography>
+        <Typography sx={{ ml: "25px", fontSize: "20px" }}>
+          {filter.label}
+        </Typography>
       </MenuItem>
     );
   };
@@ -48,17 +50,34 @@ export default function CustomFilters({
           },
         }}
         sx={{
+          height: "44px",
+          width: "100%",
+          maxWidth: "212px",
+          borderRadius: "10px",
           textAlign: "center",
+          backgroundColor: "#fff",
+          margin: { xs: "10px", sm: 0 },
+          position: { sm: "absolute" },
+          right: { sm: "12px" },
+          top: { sm: 0 },
+          ".css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select p":
+            {
+              margin: 0,
+            },
           "& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input":
             {
               p: "10px",
             },
-          ".MuiSelect-select > .css-1rhw63s-MuiTypography-root": {
-            m: 0,
-          },
           "& .css-3s0lx8-MuiSvgIcon-root": {
             height: 0,
             width: 0,
+          },
+          "& .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon": {
+            color: "#000",
+          },
+          "& .css-42y3ld-MuiList-root-MuiMenu-list": {
+            height: "101px",
+            width: "202px",
           },
         }}
       >

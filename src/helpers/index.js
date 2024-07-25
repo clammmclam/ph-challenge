@@ -6,7 +6,10 @@ export const stringAvatar = (name) => {
     sx: {
       backgroundColor: "#D9D9D9",
       color: "#222",
-      fontWeight: "bold",
+      fontWeight: 700,
+      fontSize: "24px",
+      height: "48px",
+      width: "48px",
     },
     children: initials,
   };

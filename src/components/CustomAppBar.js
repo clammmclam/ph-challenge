@@ -113,7 +113,7 @@ export default function CustomAppBar() {
                 href={page.link}
               >
                 <Typography
-                  sx={{ fontWeight: 800, fontSize: 20 }}
+                  sx={{ fontWeight: 700, fontSize: 28 }}
                   textTransform="none"
                 >
                   {page.title}

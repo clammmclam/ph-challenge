@@ -34,33 +34,42 @@ const PatientRow = ({ patient, handleReview }) => {
   const fullName = `${patient.firstName} ${patient.lastName}`;
   return (
     <TableRow key={patient.id}>
-      <TableCell sx={{ display: "flex", gap: "20px", alignItems: "center" }}>
-        <InitialsAvatar userName={fullName} />
-        <Typography
-          sx={{
-            borderBottom: "1px solid #222",
-            paddingBottom: "1px",
-          }}
-        >
-          {fullName}
-        </Typography>
+      <TableCell>
+        <Box sx={{ display: "flex", gap: "30px", alignItems: "center" }}>
+          <InitialsAvatar userName={fullName} />
+          <Typography
+            sx={{
+              borderBottom: "1px solid #222",
+              paddingBottom: "1px",
+              fontSize: "24px",
+            }}
+          >
+            {fullName}
+          </Typography>
+        </Box>
       </TableCell>
-      <TableCell align="center" sx={{ fontWeight: "bold" }}>
+      <TableCell align="center" sx={{ fontWeight: 700, fontSize: "24px" }}>
         {patient.status}
       </TableCell>
-      <TableCell align="center" sx={{ color: "green" }}>
-        {patient.timeElapsed} hours left
+      <TableCell align="center">
+        <Typography sx={{ color: "#4caf50", fontSize: "24px" }}>
+          {patient.timeElapsed} hours left
+        </Typography>
       </TableCell>
       <TableCell align="center">
         <Button
           variant="contained"
           sx={{
-            borderRadius: "20px",
-            backgroundColor: "#222",
-            p: "4px 32px",
+            borderRadius: "50px",
+            backgroundColor: "#000",
+            width: "193px",
+            height: "52px",
             textTransform: "none",
             color: "#fff",
-            fontWeight: "bold",
+            fontWeight: 700,
+            fontSize: "20px",
+            border: "1px solid #d9d9d9",
+            boxShadow: "none",
           }}
           onClick={() => handleReview(patient)}
         >
@@ -82,7 +91,9 @@ const ConditionGroup = ({
       <TableRow>
         <TableCell colSpan={4} sx={{ borderBottom: 0 }}>
           {filterValue === "byDiagnosis" && (
-            <Typography sx={{ fontWeight: "bold", fontSize: "20px" }}>
+            <Typography
+              sx={{ fontWeight: 700, fontSize: "30px", color: "#222" }}
+            >
               {capitalizeFirstLetter(conditionName)}
             </Typography>
           )}
@@ -141,19 +152,20 @@ const CustomTable = ({ filterValue }) => {
     <Box sx={{ mt: 1 }}>
       <TableContainer>
         <Table>
-          <TableHead sx={{ border: "1px solid #e0e0e0" }}>
+          <TableHead sx={{ border: "1px solid #c4c4c4", height: "63px" }}>
             <TableRow>
               {tableColumns.map((column) => (
                 <TableCell
                   key={column.name}
                   align="center"
                   sx={{
-                    backgroundColor: "#f0f0f0",
-                    fontWeight: "bold",
-                    p: "4px",
+                    backgroundColor: "#f5f5f5",
+                    borderColor: "#c4c4c4",
                   }}
                 >
-                  {column.name}
+                  <Typography sx={{ fontSize: "24px", fontWeight: 700 }}>
+                    {column.name}
+                  </Typography>
                 </TableCell>
               ))}
             </TableRow>

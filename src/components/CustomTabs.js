@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Grid, Tab, Tabs } from "@mui/material";
+import { Grid, Tab, Tabs, Typography } from "@mui/material";
 
 export default function CustomTabs({ tabs, tabValue, handleTabChange }) {
   return (
@@ -13,21 +13,24 @@ export default function CustomTabs({ tabs, tabValue, handleTabChange }) {
           aria-label="patient status tabs"
           sx={{
             p: "0 10px",
-            "& .css-1pls3aa-MuiButtonBase-root-MuiTab-root.Mui-selected": {
-              color: "#4CAF50",
-            },
           }}
         >
           {tabs.map((tab) => (
             <Tab
               key={tab.value}
-              sx={{
-                color: "#4CAF50",
-                fontWeight: "bold",
-                textTransform: "none",
-              }}
               value={tab.value}
-              label={tab.label}
+              label={
+                <Typography
+                  sx={{
+                    color: "#4CAF50",
+                    fontSize: "20px",
+                    fontWeight: 800,
+                    textTransform: "none",
+                  }}
+                >
+                  {tab.label}
+                </Typography>
+              }
             />
           ))}
         </Tabs>

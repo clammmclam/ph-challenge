@@ -98,7 +98,9 @@ const PatientModal = ({ isModalOpen, handleClose, patient }) => {
           <CloseIcon />
         </Button>
       </DialogActions>
-      <DialogTitle sx={{ fontWeight: "bold" }}>{fullName}</DialogTitle>
+      <DialogTitle sx={{ fontWeight: 700, fontSize: "24px" }}>
+        {fullName}
+      </DialogTitle>
       <DialogContent dividers>
         <Grid container spacing={2}>
           <Grid
@@ -107,28 +109,28 @@ const PatientModal = ({ isModalOpen, handleClose, patient }) => {
             sm={6}
             sx={{ display: "flex", flexDirection: "column", gap: "4px" }}
           >
-            <Typography>
+            <Typography sx={{ fontSize: "20px" }}>
               <span style={labelStyle}>Age:</span> {age}
             </Typography>
-            <Typography>
+            <Typography sx={{ fontSize: "20px" }}>
               <span style={labelStyle}>Sex:</span> {sex}
             </Typography>
-            <Typography>
+            <Typography sx={{ fontSize: "20px" }}>
               <span style={labelStyle}>Condition:</span> {condition}
             </Typography>
-            <Typography>
+            <Typography sx={{ fontSize: "20px" }}>
               <span style={labelStyle}>Allergies:</span> {allergies}
             </Typography>
-            <Typography>
+            <Typography sx={{ fontSize: "20px" }}>
               <span style={labelStyle}>Medications:</span> {medications}
             </Typography>
-            <Typography>
+            <Typography sx={{ fontSize: "20px" }}>
               <span style={labelStyle}>Next Visit:</span> {nextVisit}
             </Typography>
-            <Typography>
+            <Typography sx={{ fontSize: "20px" }}>
               <span style={labelStyle}>History:</span> {history}
             </Typography>
-            <Typography>
+            <Typography sx={{ fontSize: "20px" }}>
               <span style={labelStyle}>Notes:</span> {notes}
             </Typography>
           </Grid>

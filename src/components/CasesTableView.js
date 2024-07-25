@@ -82,11 +82,11 @@ export default function CasesTableView() {
   );
 
   if (loading) {
-    return <Typography>Loading...</Typography>;
+    return <Typography sx={{ fontSize: "20px" }}>Loading...</Typography>;
   }
 
   if (error) {
-    return <Typography>Error</Typography>;
+    return <Typography sx={{ fontSize: "20px" }}>Error</Typography>;
   }
 
   return (
@@ -114,7 +114,7 @@ export default function CasesTableView() {
         <CustomTable filterValue={filter} />
       </TabPanel>
       <TabPanel value="completed" sx={tabPanelStyles}>
-        <Typography>No patients found</Typography>
+        <Typography sx={{ fontSize: "20px" }}>No patients found</Typography>
       </TabPanel>
     </TabContext>
   );
