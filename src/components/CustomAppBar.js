@@ -11,8 +11,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import CustomDivider from "./CustomDivider";
-
-import CustomTableHeader from "./CustomTableHeader";
+import CasesTableView from "./CasesTableView";
 import InitialsAvatar from "./InitialsAvatar";
 
 const pages = [{ title: "My cases", link: "/cases" }];
@@ -157,7 +156,7 @@ export default function CustomAppBar() {
         </Toolbar>
 
         <CustomDivider />
-        <CustomTableHeader />
+        <CasesTableView />
       </Container>
     </AppBar>
   );

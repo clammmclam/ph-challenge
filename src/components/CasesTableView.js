@@ -27,7 +27,7 @@ const defaultFilters = [
 
 const tabPanelStyles = { p: 0, mb: 5, mt: 1 };
 
-export default function CustomTableHeader() {
+export default function CasesTableView() {
   const [filter, setFilterView] = React.useState("noFilter");
   const [tabView, setTabView] = React.useState("pending");
 
