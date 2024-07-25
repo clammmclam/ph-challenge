@@ -6,6 +6,13 @@ import CustomTable from "./CustomTable";
 import Grid from "@mui/material/Grid";
 import CustomFilters from "./CustomFilters";
 import CustomTabs from "./CustomTabs";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setPatients,
+  setLoading,
+  setError,
+} from "../redux/reducers/caseReducer";
+import { Typography } from "@mui/material";
 
 const defaultFilters = [
   {
@@ -18,23 +25,39 @@ const defaultFilters = [
   },
 ];
 
-const tabPanelStyles = { p: 0, mb: 5 };
+const tabPanelStyles = { p: 0, mb: 5, mt: 1 };
 
 export default function CustomTableHeader() {
   const [filter, setFilterView] = React.useState("noFilter");
   const [tabView, setTabView] = React.useState("pending");
-  const [patients, setPatients] = React.useState([]);
+
+  const dispatch = useDispatch();
+  const patients = useSelector((state) => state.cases.patients);
+  const loading = useSelector((state) => state.cases.loading);
+  const error = useSelector((state) => state.cases.error);
 
   React.useEffect(() => {
+    dispatch(setLoading(true));
     fetch("http://localhost:3001/patients")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `Encountered HTTP error with status: ${response.status}`
+          );
+        }
+        return response.json();
+      })
       .then((data) => {
-        setPatients(data);
+        dispatch(setPatients(data));
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        dispatch(setError(error.message));
+      })
+      .finally(() => {
+        dispatch(setLoading(false));
       });
-  }, []);
+  }, [dispatch]);
 
   const handleFilterChange = (e) => {
     setFilterView(e.target.value);
@@ -58,6 +81,14 @@ export default function CustomTableHeader() {
     [patients.length]
   );
 
+  if (loading) {
+    return <Typography>Loading...</Typography>;
+  }
+
+  if (error) {
+    return <Typography>Error</Typography>;
+  }
+
   return (
     <TabContext value={tabView}>
       <Grid container spacing={2} alignItems="center">
@@ -80,10 +111,10 @@ export default function CustomTableHeader() {
       <CustomDivider />
 
       <TabPanel value="pending" sx={tabPanelStyles}>
-        <CustomTable filterValue={filter} patients={patients} />
+        <CustomTable filterValue={filter} />
       </TabPanel>
       <TabPanel value="completed" sx={tabPanelStyles}>
-        <CustomTable filterValue={filter} patients={[]} />
+        <Typography>No patients found</Typography>
       </TabPanel>
     </TabContext>
   );

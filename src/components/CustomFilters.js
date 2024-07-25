@@ -53,7 +53,7 @@ export default function CustomFilters({
             {
               p: "10px",
             },
-          "& .css-1esuyd3-MuiTypography-root": {
+          ".MuiSelect-select > .css-1rhw63s-MuiTypography-root": {
             m: 0,
           },
           "& .css-3s0lx8-MuiSvgIcon-root": {

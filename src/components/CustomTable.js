@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   Button,
   Box,
@@ -99,7 +100,8 @@ const ConditionGroup = ({
   );
 };
 
-const CustomTable = ({ filterValue, patients }) => {
+const CustomTable = ({ filterValue }) => {
+  const patients = useSelector((state) => state.cases.patients);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
 
