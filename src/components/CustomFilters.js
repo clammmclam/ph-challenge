@@ -79,6 +79,16 @@ export default function CustomFilters({
             height: "101px",
             width: "202px",
           },
+          border: "1px solid #d9d9d9",
+          "& .MuiOutlinedInput-notchedOutline": {
+            border: "none",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            border: "none",
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            border: "none",
+          },
         }}
       >
         {filters.map((filter) => renderMenuItem(filter))}
